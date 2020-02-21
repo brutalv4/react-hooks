@@ -1,8 +1,13 @@
 import React from 'react';
 
 const About = props => (
-  <div className="">
-    <h1>About page</h1>
+  <div className="jumbotron jumbotron-fluid">
+    <div className="container">
+      <h1 className="display-4">Информация</h1>
+      <p className="lead">
+        Версия приложения: <strong>1.0.0</strong>
+      </p>
+    </div>
   </div>
 );
 
