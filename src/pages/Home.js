@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Card from '../components/Card';
+import Search from '../components/Search';
 
-const Home = props => (
-  <div className="">
-    <h1>Home page</h1>
-  </div>
-);
+const Home = props => {
+  const cards = new Array(15).fill('').map((_, i) => i);
+
+  return (
+    <Fragment>
+      <Search />
+
+      <div className="row">
+        {cards.map(card => (
+          <div className="col-sm-4 mb-4" key={card}>
+            <Card />
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  );
+};
 
 export default Home;
