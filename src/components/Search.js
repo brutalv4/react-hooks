@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AlertContext } from '../context/alert/alertContext';
 
 const Search = props => {
+  const [value, setValue] = useState('');
   const { show } = useContext(AlertContext);
 
   const onSubmit = event => {
     if (event.key === 'Enter') {
-      show('This is alert');
+      if (value.trim()) {
+        console.log('make request with: ', value);
+      } else {
+        show('Введите данные пользователя');
+      }
     }
   };
 
@@ -14,10 +19,10 @@ const Search = props => {
     <div className="form-group">
       <input
         type="text"
-        name=""
-        id=""
         className="form-control"
         placeholder="Введите ник пользователя"
+        value={value}
+        onChange={event => setValue(event.target.value)}
         onKeyPress={onSubmit}
       />
     </div>
